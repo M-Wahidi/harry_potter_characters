@@ -10,7 +10,7 @@ export default function Cards() {
   const [filterData, setFilterData] = useState([]);
 
   const fetchCharacters = async (house) => {
-    const resp = await fetch(`http://hp-api.herokuapp.com/api/characters/house/${house}`);
+    const resp = await fetch(`https://hp-api.herokuapp.com/api/characters/house/${house}`);
     return resp.json();
   };
   const { data, status, error } = useQuery(["Characters", house], () => fetchCharacters(house), {});
