@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/harry_potter_characters/static/css/main.972d62b7.css",
-    "main.js": "/harry_potter_characters/static/js/main.3d0245fd.js",
+    "main.css": "/harry_potter_characters/static/css/main.d32b2c20.css",
+    "main.js": "/harry_potter_characters/static/js/main.078d3e8d.js",
     "static/media/revenclaw.png": "/harry_potter_characters/static/media/revenclaw.9610bcde136dbfa89da6.png",
     "static/media/hufflepuff.png": "/harry_potter_characters/static/media/hufflepuff.f6d11a5457195a54f900.png",
     "static/media/slytherin.png": "/harry_potter_characters/static/media/slytherin.2f1ae1364423a77ea790.png",
@@ -9,11 +9,11 @@
     "static/media/kindpng_199486.png": "/harry_potter_characters/static/media/kindpng_199486.a2bffaf5b0793f4d9496.png",
     "static/media/default.png": "/harry_potter_characters/static/media/default.344e0d6f1b3a1b100bf5.png",
     "index.html": "/harry_potter_characters/index.html",
-    "main.972d62b7.css.map": "/harry_potter_characters/static/css/main.972d62b7.css.map",
-    "main.3d0245fd.js.map": "/harry_potter_characters/static/js/main.3d0245fd.js.map"
+    "main.d32b2c20.css.map": "/harry_potter_characters/static/css/main.d32b2c20.css.map",
+    "main.078d3e8d.js.map": "/harry_potter_characters/static/js/main.078d3e8d.js.map"
   },
   "entrypoints": [
-    "static/css/main.972d62b7.css",
-    "static/js/main.3d0245fd.js"
+    "static/css/main.d32b2c20.css",
+    "static/js/main.078d3e8d.js"
   ]
 }
