@@ -9,3 +9,14 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+.modeDown{
+  animation: modeDown .3s ease-in-out forwards;
+  position: relative;
+  
+  }
+  
+  @keyframes modeDown {
+    from {top: -50px;}
+    to {top: 0;}
+  }

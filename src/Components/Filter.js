@@ -3,11 +3,11 @@ import { filterContext } from "../Helper/Context";
 export default function Filter() {
   const { setHouse } = useContext(filterContext);
   return (
-    <div>
+    <div className="relative">
       <select
         name='charechters'
         id='charechters'
-        className='text-center text-xl rounded-md'
+        className='text-center text-xl rounded-md dark:text-black transition-colors'
         onChange={(e) => setHouse(e.target.value)}
       >
         <option value='Gryffindor'>Gryffindor</option>

@@ -1,37 +1,47 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect } from "react";
 import { useQuery } from "react-query";
+import { filterContext,searchContext } from "../Helper/Context";
 import Card from "./Card";
-import { filterContext } from "../Helper/Context";
-import { searchContext } from "../Helper/Context";
 
 export default function Cards() {
   const { house } = useContext(filterContext);
   const { name } = useContext(searchContext);
-  const [filterData, setFilterData] = useState([]);
 
-  const fetchCharacters = async (house) => {
+  const fetchHouses = async (house) => {
     const resp = await fetch(`https://hp-api.herokuapp.com/api/characters/house/${house}`);
     return resp.json();
   };
-  const { data, status, error } = useQuery(["Characters", house], () => fetchCharacters(house), {});
+  const { data, status, error } = useQuery(["Houses", house], () => fetchHouses(house),{keepPreviousData:true});
 
+
+  const fetchCharacters = async () => {
+    const resp = await fetch(`https://hp-api.herokuapp.com/api/characters/`);
+    return resp.json();
+  };
+  const { data:AllCharchters, status:searchStatus, error:SeachError } = useQuery("Characters", () => fetchCharacters());
+
+
+    
   useEffect(() => {
-    if (status === "success") {
-      setFilterData(data.find((char) => char.name.toLowerCase().includes(name.toLowerCase().trim())));
-      console.log();
+    if(searchStatus === 'success'){
+      AllCharchters.filter((char) => char.name.toLowerCase().includes(name.toLowerCase().trim()));
     }
-  }, [name]);
+  }, [name,AllCharchters,searchStatus]);
 
-  if (status === "loading") {
+  if (status === "loading" || searchStatus === 'loading' ) {
     return <p className='font-sub'>Loading...</p>;
   }
-  if (error) {
+  if (error || SeachError) {
     return <h1 className='font-sub'>{error.message}</h1>;
   }
 
   return (
-    <div className='flex flex-wrap justify-center gap-3 '>
-      {name !== "" && <Card card={filterData || {}} />}
+    <div className='py-3 flex flex-wrap justify-center gap-5'>
+      {
+        name !== "" && AllCharchters.filter(card => {
+          return card.name.toLowerCase().includes(name.toLowerCase().trim())
+        }).map((card,idx) =>  <Card key={idx} card={card} />)
+      }
       {name === "" && data.map((card, idx) => <Card key={idx} card={card} />)}
     </div>
   );
