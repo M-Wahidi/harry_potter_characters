@@ -1,9 +1,9 @@
 import React, { useContext } from "react";
-import { filterContext } from "../Helper/Context";
+import { filterCTX } from "../Context/FilterContext";
 export default function Filter() {
-  const { setHouse } = useContext(filterContext);
+  const { setHouse } = useContext(filterCTX);
   return (
-    <div className="relative">
+    <div className='relative'>
       <select
         name='charechters'
         id='charechters'

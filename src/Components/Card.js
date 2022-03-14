@@ -3,7 +3,7 @@ import gryffindor from "../Assets/gryffindor.png";
 import slytherin from "../Assets/slytherin.png";
 import ravenclaw from "../Assets/revenclaw.png";
 import hufflepuff from "../Assets/hufflepuff.png";
-import muggles from "../Assets/kindpng_199486.png";
+import muggles from "../Assets/NO_HOUSE.png";
 
 const HOUSES_ICONS = {
   Gryffindor: gryffindor,
@@ -19,7 +19,7 @@ function Card({ card }) {
       style={{ width: "400px", height: "220px", backgroundSize: "cover" }}
     >
       <div>
-        <img style={{ height: "100%", width: "170px" }} src={card.image || defaultImage} alt={card.name} loading='lazy' />
+        <img style={{ height: "100%", width: "170px" }} src={card.image || defaultImage} alt={card.name} />
         <img
           style={{ height: "50px", width: "50px", right: "5px", bottom: "10px" }}
           src={HOUSES_ICONS[card.house] || muggles}
@@ -30,7 +30,7 @@ function Card({ card }) {
       <div className='flex flex-col my-5 mx-1 gap-3'>
         <div className='text-md'>{card.name || "Not Found"}</div>
         <div className='text-md'>{card.house || "Not Specified"}</div>
-        <div className='text-md'>{!card.yearOfBirth  ? 'Unknown' : new Date().getFullYear() - card.yearOfBirth}</div>
+        <div className='text-md'>{!card.yearOfBirth ? "Unknown" : new Date().getFullYear() - card.yearOfBirth}</div>
       </div>
     </div>
   );
